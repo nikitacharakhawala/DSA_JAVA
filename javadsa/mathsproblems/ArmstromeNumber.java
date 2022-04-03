@@ -22,9 +22,11 @@ public class ArmstromeNumber {
     public static int pow(int n, int power){
         int answer=n;
         double p=power/2;
+
         for(int j=1;j<=p;j++){
                 answer=answer*n;
         }
+
         if(power%2!=0){
             answer=answer*n;
         }
