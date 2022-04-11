@@ -40,7 +40,8 @@ package javadsaintermediate.arrayproblems;
 public class AmazingSubArrays {
     public static void main(String[] args) {
         AmazingSubArrays amazingSubArrays=new AmazingSubArrays();
-        System.out.println(amazingSubArrays.getAmazingString("ABEC"));
+        System.out.println(amazingSubArrays.getAmazingString("DREHKUNEABBGRHKFEHUILO"));
+        System.out.println(amazingSubArrays.getAmazingString1("DREHKUNEABBGRHKFEHUILO"));
     }
 
     public int getAmazingString(String A){
@@ -48,6 +49,18 @@ public class AmazingSubArrays {
         int x=0;
         for(int i=0;i<A.length();i++){
             if(v.contains(String.valueOf(A.charAt(i)))){
+                x=x+A.length()-i;
+            }
+        }
+        return x % 10003;
+    }
+
+    public int getAmazingString1(String A){
+        String v="aeiouAEIOU";
+        int x=0;
+        char[] ch=A.toCharArray();
+        for(int i=0;i<A.length();i++){
+            if(ch[i]=='a' || ch[i]=='e' || ch[i]=='i' || ch[i]=='o' || ch[i]=='u' || ch[i]=='A' || ch[i]=='E' || ch[i]=='O' || ch[i]=='I' || ch[i]=='U'){
                 x=x+A.length()-i;
             }
         }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class EvenSubarrays {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<Integer> A=new ArrayList<>(Arrays.asList(2, 4, 8, 6));
+        ArrayList<Integer> A=new ArrayList<>(Arrays.asList(2, 4, 8, 6, 3 ,2));
         EvenSubarrays evenSubarrays=new EvenSubarrays();
         System.out.println(evenSubarrays.getEvenSubArrays(A));
     }
