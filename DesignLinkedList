@@ -1,0 +1,75 @@
+ static class ListNode{
+    public int val;
+    public ListNode next;
+    ListNode(int x){
+        this.val=x;
+        this.next=null;
+    }
+}
+ static ListNode head;
+    static int length=0;
+    public static void insert_node(int position, int value) {
+        // @params position, integer
+        // @params value, integer
+         ListNode temp=head;
+        ListNode newNode=new ListNode(value);
+        if(position>length+1){
+            return;
+        }
+        if(position==1){
+           newNode.next=head;
+           head=newNode;
+        }
+       else{
+           int i=1;
+            while(i<position-1){
+                temp=temp.next;
+              
+                i++;
+            }
+            if(temp.next!=null)
+                newNode.next=temp.next;
+            else
+                newNode.next=null;
+            temp.next=newNode;
+       }
+        length++;
+    }
+
+    public static void delete_node(int position) {
+        // @params position, integer
+     
+        if(position>length) {
+            return ;
+        }
+        if(position==1){
+            head=head.next;
+        }else{
+           
+            int counter=1;
+            ListNode curr=head;
+            while(counter<position-1){
+                counter++;
+                curr=curr.next;   
+            }
+            curr.next=curr.next.next;
+        }
+        length--;
+    }
+
+    public static void print_ll() {
+        // Output each element followed by a space
+         ListNode temp=head;
+         if(length==0)
+            return;
+       
+
+            while(temp.next!=null){
+                System.out.print(temp.val+" ");
+                temp=temp.next;
+            }
+            System.out.print(temp.val);
+        
+       
+       
+    }
