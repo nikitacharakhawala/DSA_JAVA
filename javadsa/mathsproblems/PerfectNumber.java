@@ -6,7 +6,12 @@ public class PerfectNumber {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        printPerfectNumber(n);
+        //printPerfectNumber(n);
+        System.out.println(solve(n));
+    }
+
+    public static int solve(int A) {
+        return 0;
     }
 
     public static void printPerfectNumber(int n){
