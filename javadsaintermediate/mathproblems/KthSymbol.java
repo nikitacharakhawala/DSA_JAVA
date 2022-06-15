@@ -58,6 +58,29 @@ package javadsaintermediate.mathproblems;
  */
 public class KthSymbol {
     public static void main(String[] args) {
+        int A=5;
+        int B=5;
+        System.out.println(findKthSymbol(A,B));
+    }
 
+    public static int findKthSymbol(int A, int B){
+        if(A==1){
+
+            return 0;
+        }
+
+        int par=findKthSymbol(A-1, B/2+B%2);
+        System.out.println("par::"+par);
+        if(par==0){
+            if(B%2==0)
+                return 1;
+            else
+                return 0;
+        }else{
+            if(B%2==0)
+                return 0;
+            else
+                return 1;
+        }
     }
 }

@@ -1,5 +1,12 @@
 package javadsaintermediate.mathproblems;
 
+import java.net.CookieHandler;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Q1. Implement Power Function
  * Unsolved
@@ -42,11 +49,12 @@ package javadsaintermediate.mathproblems;
  */
 public class ModuloPowerFun {
     public static void main(String[] args) {
-        int A=71045970, B=41535484, C=64735492;
+
 //        System.out.println((A%C)+C);
 //        System.out.println((-1%20)+20);
 
-        System.out.println(pow(A,B, C));
+      String a="z";
+      System.out.println(a.charAt(0)-96);
     }
 
     public static int pow(int A, int B, int C){

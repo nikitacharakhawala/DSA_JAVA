@@ -1,37 +1,37 @@
 package javadsaintermediate.stringproblemsintermmediate;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class ChangeCharacter {
     public static void main(String[] args) {
-        String A="abcabbccd";
-        int B=3;
+        String A="umeaylnlfd";
+        int B=1;
         System.out.println(ChangeCharacter(A,B));
     }
 
     public static int ChangeCharacter(String A, int B){
-        HashMap<Character, Integer> hm=new HashMap<>();
+       int[] charArry=new int[26];
+       int count=0, dist=0;
+       if(B==0)
+           return A.length();
+       for(int i=0;i<A.length();i++){
+           charArry[A.charAt(i)-'a']++;
+           if(charArry[A.charAt(i)-'a']==1)
+               dist++;
 
-        for(int i=0;i<A.length();i++){
-            if(!hm.containsKey(A.charAt(i))){
-                hm.put(A.charAt(i), 1);
+       }
+        Arrays.sort(charArry);
 
-            }else{
-                hm.put(A.charAt(i), hm.get(A.charAt(i))+1);
+       for(int i=0;i<charArry.length;i++){
+           if(charArry[i]==0)
+               continue;
+           if(charArry[i]>B)
+               break;
+           dist--;
+           B=B-charArry[i];
 
-            }
-        }
+       }
+       return dist;
 
-       int count=0;
-        System.out.println(hm);
-        for(Map.Entry<Character,Integer> entry: hm.entrySet()){
-            if(B>= entry.getValue()){
-
-            }
-        }
-        return count;
     }
 }

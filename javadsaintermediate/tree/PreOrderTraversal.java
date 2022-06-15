@@ -80,6 +80,7 @@ import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Stack;
 
 class TreeNode {
     int val;
@@ -95,20 +96,20 @@ class TreeNode {
 public class PreOrderTraversal {
     public static void main(String[] args) {
         TreeNode root=new TreeNode(1);
-        TreeNode lr=new TreeNode(2);
+        TreeNode lr=new TreeNode(6);
         root.left=lr;
-        TreeNode lr1=new TreeNode(4);
-        lr.left=lr1;
-        TreeNode lr2=new TreeNode(5);
-        lr.right=lr2;
-        TreeNode rl=new TreeNode(3);
+//        TreeNode lr1=new TreeNode(4);
+//        lr.left=lr1;
+//        TreeNode lr2=new TreeNode(5);
+//        lr.right=lr2;
+        TreeNode rl=new TreeNode(2);
         root.right=rl;
-        TreeNode rl1=new TreeNode(6);
+        TreeNode rl1=new TreeNode(3);
         rl.left=rl1;
-        TreeNode rl2=new TreeNode(7);
-        rl.right=rl2;
+//        TreeNode rl2=new TreeNode(7);
+//        rl.right=rl2;
         ArrayList<Integer> ans=new ArrayList<>();
-        ans=preOrderTraversal(root, ans);
+        ans=preOrderTraversalWithoutRecursion(root);
         for(Integer ele: ans){
             System.out.print(ele+" ");
         }
@@ -121,5 +122,22 @@ public class PreOrderTraversal {
            preOrderTraversal(root.left, A);
            preOrderTraversal(root.right, A);
            return A;
+    }
+
+    public static ArrayList<Integer> preOrderTraversalWithoutRecursion(TreeNode root){
+        Stack s1=new Stack();
+        s1.push(root);
+        ArrayList<Integer> answer=new ArrayList<>();
+        while(!s1.isEmpty()){
+            TreeNode t=(TreeNode) s1.pop();
+            answer.add(t.val);
+            if(t.right!=null){
+                s1.push(t.right);
+            }
+            if(t.left!=null){
+                s1.push(t.left);
+            }
+        }
+        return answer;
     }
 }
