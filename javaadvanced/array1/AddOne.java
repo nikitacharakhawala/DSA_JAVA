@@ -1,26 +1,53 @@
 package javaadvanced.array1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class AddOne {
     public static void main(String[] args) {
-        int[] A={1,2,9};
-        System.out.println(Arrays.toString(getAddOne(A)));
+        List<Integer> A=Arrays.asList(0, 3, 7, 6, 4, 0, 5, 5, 5);
+
+        for(Integer i: getAddOne(A)){
+            System.out.print(i);
+        };
     }
 
-   public static int[] getAddOne(int[] A){
-
-        int i=A.length-1;
-       int carry=A[i]+1;
-        while(carry>0){
-
-            if(carry>9){
-                A[i]=carry%10;
-                carry=carry/10;
-            }else{
-                A[i]=carry;
-            }
+   public static ArrayList<Integer> getAddOne(List<Integer> A){
+        int carry=0;
+        ArrayList<Integer> answer=new ArrayList<>();
+        for(int i=A.size()-1;i>=0;i--){
+             if(i==A.size()-1){
+                 if(A.get(i)==9){
+                     answer.add(0);
+                     carry=1;
+                 }else{
+                     answer.add(A.get(i)+1);
+                     carry=0;
+                 }
+             }
+             else if(carry==1){
+                 if(A.get(i)<9){
+                     answer.add(A.get(i)+carry);
+                     carry=0;
+                 }else{
+                     answer.add(0);
+                     carry=1;
+                 }
+             }else{
+                 answer.add(A.get(i));
+             }
+             System.out.println(Arrays.toString(answer.toArray()));
         }
-        return A;
+        if(carry==1){
+            answer.add(carry);
+        }
+        Collections.reverse(answer);
+        int i=0;
+        while(answer.get(i)==0){
+            answer.remove(i);
+        }
+        return answer;
    }
 }
